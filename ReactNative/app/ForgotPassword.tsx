@@ -1,5 +1,5 @@
   import React, { useState } from 'react'
-import { View, Alert } from 'react-native'
+import { View, Alert, ImageBackground } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { TextInput, Button, Card, Title, ActivityIndicator } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -8,6 +8,7 @@ import { User } from '@/components/get/User'
 import { RootStackParamList } from './_layout'
 import { ChangePassStyle } from '@/assets/styles/ChangePassStyle'
 import { theme } from '@/assets/styles/style'
+import { ProfileStyle } from '@/assets/styles/ProfileStyle'
 
 interface ForgotPasswordProps {
   navigation: NavigationProp<RootStackParamList, 'ForgotPassword'>
@@ -33,15 +34,12 @@ export default function ForgotPassword({ navigation }: ForgotPasswordProps) {
   }
 
   return (
+    <ImageBackground 
+    source={require('../assets/images/background1.jpg')}
+    style={ProfileStyle.backgroundImage}
+  >
     <SafeAreaView style={ChangePassStyle.container}>
       <View style={ChangePassStyle.content}>
-        {loading ? (
-          <View style={ChangePassStyle.loadingContainer}>
-            <ActivityIndicator animating={true} color={theme.colors.primary} size="large" />
-          </View>
-        ) : (
-          <Card style={ChangePassStyle.card}>
-            <Card.Content>
               <Title style={ChangePassStyle.title}>Forgot Password</Title>
               <TextInput
                 label="Email Address"
@@ -61,10 +59,8 @@ export default function ForgotPassword({ navigation }: ForgotPasswordProps) {
               >
                 Back to Login
               </Button>
-            </Card.Content>
-          </Card>
-        )}
       </View>
     </SafeAreaView>
+    </ImageBackground>
   )
 }

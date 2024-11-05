@@ -33,14 +33,13 @@ const ProfilePage = (props: ProfilePageProps)  => {
   const defaultImageUri = '../assets/images/user.jpg'
   
   return (
-
     <View style={ProfileStyle.container}>
-      <ImageBackground 
+      <ImageBackground
         source={require('../assets/images/background1.jpg')}
         style={ProfileStyle.backgroundImage}
       >
         {currentUser ? (
-          <Card style={ProfileStyle.card}>
+          <>
             <View style={ProfileStyle.profileImageContainer}>
               <Image
                 source={{ uri: currentUser.imageUri || defaultImageUri }}
@@ -53,28 +52,25 @@ const ProfilePage = (props: ProfilePageProps)  => {
             <View style={ProfileStyle.tagsContainer}>
               <Text style={ProfileStyle.tag}>Photographer</Text>
               <Text style={ProfileStyle.tag}>Gamer</Text>
-              <Text style={ProfileStyle.tag}>Hairstylist</Text>
-              <Text style={ProfileStyle.tag}>Writer</Text>
             </View>
             <View style={ProfileStyle.infoSection}>
               <View style={ProfileStyle.infoCard}><Text>Age</Text><Text>21</Text></View>
-              <View style={ProfileStyle.infoCard}><Text>Location</Text><Text>Cebu</Text></View>
-              <View style={ProfileStyle.infoCard}><Text>Hobbies</Text><Text>Writing</Text></View>
-              <View style={ProfileStyle.infoCard}><Text>Height</Text><Text>130cm</Text></View>
+              <View style={ProfileStyle.infoCard}><Text>Location</Text><Text>CDO</Text></View>
+              <View style={ProfileStyle.infoCard}><Text>Hobby</Text><Text>Reading</Text></View>
+              <View style={ProfileStyle.infoCard}><Text>Height</Text><Text>5'2</Text></View>
             </View>
             <View style={ProfileStyle.socialIcons}>
               <FontAwesome name="facebook" size={24} color="black" />
               <FontAwesome name="twitter" size={24} color="black" />
               <FontAwesome name="instagram" size={24} color="black" />
             </View>
-          </Card>
+          </>
         ) : (
           <Text>Loading user data...</Text>
         )}
       </ImageBackground>
     </View>
+  );
+};
 
-  )
-}
-
-export default ProfilePage
+export default ProfilePage;

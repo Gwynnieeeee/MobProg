@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Alert } from 'react-native'
+import { View, Alert, ImageBackground } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { TextInput, Button, Card, Title, ActivityIndicator } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -8,6 +8,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamList } from './_layout'
 import { ChangePassStyle } from '@/assets/styles/ChangePassStyle'
 import { theme } from '@/assets/styles/style'
+import { ProfileStyle } from '@/assets/styles/ProfileStyle'
 
 
 type ResetPasswordProps = NativeStackScreenProps<RootStackParamList, 'ResetPassword'>
@@ -60,15 +61,12 @@ export default function ResetPasswordScreen({ route, navigation }: ResetPassword
   }
 
   return (
+    <ImageBackground 
+    source={require('../assets/images/background1.jpg')}
+    style={ProfileStyle.backgroundImage}
+  >
     <SafeAreaView style={ChangePassStyle.container}>
       <View style={ChangePassStyle.content}>
-        {loading ? (
-          <View style={ChangePassStyle.loadingContainer}>
-            <ActivityIndicator animating={true} color={theme.colors.primary} size="large" />
-          </View>
-        ) : (
-          <Card style={ChangePassStyle.card}>
-            <Card.Content>
               <Title style={ChangePassStyle.title}>Reset Your Password</Title>
               <TextInput
                 label="New Password"
@@ -108,10 +106,9 @@ export default function ResetPasswordScreen({ route, navigation }: ResetPassword
               >
                 Back to Login
               </Button>
-            </Card.Content>
-          </Card>
-        )}
+
       </View>
     </SafeAreaView>
+    </ImageBackground>
   )
 }

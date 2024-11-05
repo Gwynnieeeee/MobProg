@@ -4,7 +4,7 @@ export const ChangePassStyle = StyleSheet.create({
     
     container: {
         flex: 1,
-        backgroundColor: '#87CEEB',
+        width:'90%'
       },
 
       content: {
@@ -27,7 +27,7 @@ export const ChangePassStyle = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 16,
         textAlign: 'center',
-        color: 'white',
+        color: 'black',
       },
 
       input: {
@@ -36,7 +36,8 @@ export const ChangePassStyle = StyleSheet.create({
         borderBottomColor: '#CCCCCC',
         borderBottomWidth: 1,
         marginVertical: 10,
-        fontSize: 16,
+        fontSize: 18,
+        fontWeight: 'bold'
       },
 
       buttonContainer: {
