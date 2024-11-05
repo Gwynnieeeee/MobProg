@@ -30,7 +30,7 @@ export const RegisterStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        backgroundColor: '#87CEEB',
+        width: '90%'
     },
 
     input: {
@@ -38,7 +38,9 @@ export const RegisterStyle = StyleSheet.create({
         borderBottomColor: '#CCCCCC',
         borderBottomWidth: 1,
         marginVertical: 10,
-        fontSize: 16,
+        fontSize: 24,
+        color: 'black',
+        fontWeight: 'bold'
     },
 
     cardTitle: {

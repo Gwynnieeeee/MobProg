@@ -1,10 +1,11 @@
-import { Alert, Text, View } from "react-native"
+import { Alert, ImageBackground, Text, View } from "react-native"
 import { TouchableOpacity } from "react-native"
 import { Button, Card, TextInput } from "react-native-paper"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { LoginStyle } from "../assets/styles/LoginStyle"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useState } from "react"
+import { ProfileStyle } from "@/assets/styles/ProfileStyle"
 
 interface LoginPageProps {
   navigation: any
@@ -64,11 +65,12 @@ export default function Index(props: LoginPageProps) {
   }
   
   return (
-
+    <ImageBackground 
+    source={require('../assets/images/background1.jpg')}
+    style={ProfileStyle.backgroundImage}
+  >
     <SafeAreaView style = {LoginStyle.content}>
       <View style = {LoginStyle.view}>
-        <Card>
-          <Card.Content>
             <TextInput
               value = {username}
               onChangeText = {setUsername}
@@ -104,10 +106,9 @@ export default function Index(props: LoginPageProps) {
               onPress = {checkStoredUsers}
               mode = 'contained'
               style = {LoginStyle.cardButton}>Check</Button>*/}
-          </Card.Content>
-        </Card>
       </View>
     </SafeAreaView>
+    </ImageBackground>
 
   )
 }

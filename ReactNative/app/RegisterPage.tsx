@@ -1,4 +1,4 @@
-import { View, Text, Alert, Image } from 'react-native'
+import { View, Text, Alert, Image, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button, Card, TextInput } from 'react-native-paper'
@@ -7,6 +7,7 @@ import { RegisterStyle } from '../assets/styles/RegisterStyle'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
+import { ProfileStyle } from '@/assets/styles/ProfileStyle'
 
 interface RegisterPageProps { 
   navigation: any
@@ -141,16 +142,14 @@ const RegisterPage = (props: RegisterPageProps) => {
   }
 
   return (
+    <ImageBackground 
+    source={require('../assets/images/background1.jpg')}
+    style={ProfileStyle.backgroundImage}
+  >
 
     <SafeAreaView style = {RegisterStyle.content}>
       <ScrollView>
         <View style = {RegisterStyle.view}>
-          <Card>
-            <Card.Title
-              title = "Register"
-              titleStyle = { RegisterStyle.cardTitle}>
-            </Card.Title>
-            <Card.Content>
             {imageUri && (
                 <Image
                   source={{ uri: imageUri }}
@@ -231,11 +230,10 @@ const RegisterPage = (props: RegisterPageProps) => {
                 style = {RegisterStyle.cardButton}>
                 Sign In
                 </Button>
-            </Card.Content>
-          </Card>
         </View>
       </ScrollView>
     </SafeAreaView>
+    </ImageBackground>
 
   )
 }
